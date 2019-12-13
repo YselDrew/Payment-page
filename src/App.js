@@ -1,12 +1,13 @@
-import React from 'react';
-import './App.css';
+import React from "react"
+import "./App.css"
+import SubscriptionPage from "./components/SubscriptionPage.js"
 
 function App() {
   return (
     <div>
-      Payment Page
+      <SubscriptionPage />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
