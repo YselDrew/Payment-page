@@ -8,7 +8,7 @@ import AnnualForm from "./components/AnnualForm.js";
 import FeedbackSlider from "./components/FeedbackSlider.js";
 import Footer from "./components/Footer.js";
 
-import "./App.css";
+import "./styles/App.scss";
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='App'>
           <Header />
           <span>
             Your profile is ready. Get your personalized cover letter now for
