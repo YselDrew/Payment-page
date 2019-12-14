@@ -1,14 +1,14 @@
 import React from "react";
-import TrialOffer from "./TrialOffer.js";
 import AnnualOffer from "./AnnualOffer.js";
+import FormComponent from "./FormComponent";
 
-function OfferComponent(props) {
+function TrialForm(props) {
   return (
     <div>
-      <TrialOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
       <AnnualOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
+      <FormComponent />
     </div>
   );
 }
 
-export default OfferComponent;
+export default TrialForm;

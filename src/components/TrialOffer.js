@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FormComponent from "./FormComponent";
 
 function TrialOffer(props) {
+  const { isOpen, openOffer } = props;
   return (
     <div>
       <div>
@@ -13,11 +13,16 @@ function TrialOffer(props) {
       <span>The first week only for</span>
       <span>$0.99</span>
       <span>Rebills at $8.99 per month after your trial is completed.</span>
-      <Link to="/">
-        <input type="button" value="Change" />
-      </Link>
 
-      <FormComponent />
+      {isOpen ? (
+        <Link to="/" role="button" onClick={openOffer}>
+          Change
+        </Link>
+      ) : (
+        <Link to="/trial" role="button" onClick={openOffer}>
+          Get Started
+        </Link>
+      )}
     </div>
   );
 }
