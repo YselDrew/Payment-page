@@ -2,8 +2,9 @@ import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import Header from "./Header.js"
+import AnnualPlanOffer from "./AnnualPlanOffer.js"
 import OfferComponent from "./OfferComponent.js"
-import FormComponent from "./FormComponent.js"
+import TrialOffer from "./TrialOffer.js"
 import FeedbackSlider from "./FeedbackSlider.js"
 import Footer from "./Footer.js"
 
@@ -20,8 +21,8 @@ function SubscriptionPage() {
         <div>
           <Switch>
             <Route path="/" exact component={OfferComponent} />
-            <Route path="/trial" component={FormComponent} />
-            <Route path="/annual" component={FormComponent} />
+            <Route path="/trial" component={TrialOffer} />
+            <Route path="/annual" component={AnnualPlanOffer} />
           </Switch>
           <div>Best Price Guaranteed</div>
         </div>

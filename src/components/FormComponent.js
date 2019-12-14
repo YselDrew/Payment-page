@@ -4,9 +4,6 @@ import { Link } from "react-router-dom"
 function FormComponent() {
   return (
     <div>
-      <Link to='/'>
-        <input type='button' value='change' />
-      </Link>
       <form>
         <span>Card number</span>
         <input type="text"/>
@@ -18,7 +15,7 @@ function FormComponent() {
         <input type="text"/>
         <span>Exp. Year</span>
         <input type="text"/>
-        <input type="button" value="confirm"/>
+        <input type="submit" value="confirm"/>
       </form>
     </div>
   )
