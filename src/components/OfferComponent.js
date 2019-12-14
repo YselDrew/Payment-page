@@ -5,7 +5,7 @@ import AnnualOffer from "./AnnualOffer.js";
 function OfferComponent(props) {
   return (
     <div>
-      <TrialOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
+      <TrialOffer seconds={props.seconds} deadline={props.deadline} openOffer={props.openOffer} isOpen={props.isOfferOpen} />
       <AnnualOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
     </div>
   );

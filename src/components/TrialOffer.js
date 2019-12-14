@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Timer from "./Timer.js"
+
 function TrialOffer(props) {
   const { isOpen, openOffer } = props;
   return (
     <div>
       <div>
         <span>LIMITED SUMMER OFFER</span>
-        TIMER
+        <Timer seconds={props.seconds}/>
       </div>
       <span>Trial</span>
       <span>The first week only for</span>

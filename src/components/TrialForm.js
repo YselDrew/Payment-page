@@ -5,7 +5,7 @@ import FormComponent from "./FormComponent";
 function TrialForm(props) {
   return (
     <div>
-      <TrialOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
+      <TrialOffer seconds={props.seconds} openOffer={props.openOffer} isOpen={props.isOfferOpen} />
       <FormComponent />
     </div>
   );
