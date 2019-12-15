@@ -1,0 +1,37 @@
+@import "./colors";
+
+.slick-slider * {
+  outline: none;
+}
+
+.slick-dots {
+  li.slick-active {
+    button:before {
+      color: $green !important;
+    }
+  }
+}
+
+.slide {
+  height: 150px;
+  img {
+    float: left;
+    width: 12%;
+  }
+  .text {
+    width: 60%;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    .name {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333333;
+    }
+    .quote {
+      font-size: 15px;
+      color: #646464;
+    }
+  }
+}

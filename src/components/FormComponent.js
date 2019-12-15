@@ -44,15 +44,15 @@ function FormComponent() {
     <Formik
       validationSchema={validationSchema}
       initialValues={{ cardNumber: "", firstName: "", lastName: "", year: "" }}
-      // onSubmit={(values, {setSubmitting, resetForm}) => {
-      //   setSubmitting(false);
+      onSubmit={(values, {setSubmitting, resetForm}) => {
+        setSubmitting(false);
 
-      //   setTimeout(() => {
-      //     alert(JSON.stringify(values, null, 2))
-      //     resetForm();
-      //     setSubmitting(false);
-      //   }, 500)
-      // }}
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2))
+          resetForm();
+          setSubmitting(false);
+        }, 500)
+      }}
     >
       {({
         values,
@@ -60,11 +60,10 @@ function FormComponent() {
         touched,
         handleChange,
         handleBlur,
-        // handleSubmit,
-        // isSubmitting
+        handleSubmit,
+        isSubmitting
       }) => (
-        // <form onSubmit={handleSubmit}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-row">
             <label htmlFor="cardNumber">Card Number</label>
             <input
@@ -74,7 +73,6 @@ function FormComponent() {
               placeholder="Enter card number"
               onChange={handleChange}
               onBlur={handleBlur}
-              // value={values.cardNumber}
               value={creditCardNumberParse(values.cardNumber)}
               className={
                 touched.cardNumber && errors.cardNumber ? "has-error" : null
@@ -83,39 +81,6 @@ function FormComponent() {
             <Error touched={touched.cardNumber} message={errors.cardNumber} />
           </div>
 
-          <div className="input-row">
-            <label htmlFor="firstName">Cradholder First Name</label>
-            <input
-              type="text"
-              name="firstName"
-              id="firstName"
-              placeholder="Enter First Name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.firstName}
-              className={
-                touched.firstName && errors.firstName ? "has-error" : null
-              }
-            />
-            <Error touched={touched.firstName} message={errors.firstName} />
-          </div>
-
-          <div className="input-row">
-            <label htmlFor="lastName">Cardholder Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              placeholder="Enter Last Name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.lastName}
-              className={
-                touched.lastName && errors.lastName ? "has-error" : null
-              }
-            />
-            <Error touched={touched.lastName} message={errors.lastName} />
-          </div>
           <div className="input-row">
             <label htmlFor="month">Exp. Month</label>
             <select name="month" id="month">
@@ -157,8 +122,41 @@ function FormComponent() {
           </div>
 
           <div className="input-row">
-            {/* <button type="submit" disabled={isSubmitting}> */}
-            <button type="submit" disabled>
+            <label htmlFor="firstName">Cardholder First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="Enter First Name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.firstName}
+              className={
+                touched.firstName && errors.firstName ? "has-error" : null
+              }
+            />
+            <Error touched={touched.firstName} message={errors.firstName} />
+          </div>
+
+          <div className="input-row">
+            <label htmlFor="lastName">Cardholder Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Enter Last Name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.lastName}
+              className={
+                touched.lastName && errors.lastName ? "has-error" : null
+              }
+            />
+            <Error touched={touched.lastName} message={errors.lastName} />
+          </div>
+
+          <div className="input-row">
+            <button type="submit" disabled={isSubmitting}>
               Confirm
             </button>
           </div>
