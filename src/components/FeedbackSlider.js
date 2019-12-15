@@ -8,8 +8,8 @@ import { feedback } from "../data.js";
 import "../styles/feedbackSlider.scss";
 
 const feedbackElement = feedback.map(item => (
-  <div className="slide">
-    <img src={item.img} key={item.id}></img>
+  <div key={item.id} className="slide">
+    <img src={item.img} alt='#'></img>
     <div className="text">
       <span className="name">{item.name}</span>
       <span className="quote">{item.text}</span>
