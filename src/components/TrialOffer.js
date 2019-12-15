@@ -9,7 +9,7 @@ function TrialOffer(props) {
     <div>
       <div>
         <span>LIMITED SUMMER OFFER</span>
-        <Timer seconds={props.seconds}/>
+        <Timer />
       </div>
       <span>Trial</span>
       <span>The first week only for</span>

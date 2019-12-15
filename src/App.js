@@ -15,46 +15,14 @@ class App extends Component {
     super(props);
     this.state = {
       isOfferOpen: false,
-      seconds: undefined
     };
-
-    this.timer = 0;
   }
-
-  trialDeadline = () => {
-    const milisecInSecond = 1000;
-    const deadline = new Date("Dec 18, 2019 23:59:59").getTime();
-    const today = new Date().getTime();
-    const timeLeft = Math.floor((deadline - today) / milisecInSecond);
-    console.log(timeLeft);
-
-    return timeLeft;
-  };
-
-  countDown = () => {
-    const seconds = this.state.seconds - 1;
-    this.setState({
-      seconds: seconds
-    });
-
-    if (seconds === 0) {
-      clearInterval(this.timer);
-    }
-  };
 
   openOffer = () => {
     this.setState({
       isOfferOpen: !this.state.isOfferOpen
     });
   };
-
-  componentDidMount() {
-    const timeLeft = this.trialDeadline();
-    this.setState({
-      seconds: timeLeft
-    });
-    this.timer = setInterval(this.countDown, 1000);
-  }
 
   render() {
     return (
@@ -76,7 +44,6 @@ class App extends Component {
                     {...props}
                     openOffer={this.openOffer}
                     isOfferOpen={this.state.isOfferOpen}
-                    seconds={this.state.seconds}
                   />
                 )}
               />
@@ -87,7 +54,6 @@ class App extends Component {
                     {...props}
                     openOffer={this.openOffer}
                     isOfferOpen={this.state.isOfferOpen}
-                    seconds={this.state.seconds}
                   />
                 )}
               />

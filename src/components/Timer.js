@@ -4,8 +4,11 @@ class Timer extends Component {
   constructor() {
     super();
     this.state = {
-      time: {}
+      time: {},
+      seconds: 0
     };
+
+    this.timer = 0;
   }
 
   secondsToTime(secs) {
@@ -29,16 +32,37 @@ class Timer extends Component {
     return time;
   }
 
-  componentDidMount() {
-    const timeLeftVar = this.secondsToTime(this.props.seconds);
-    this.setState({ time: timeLeftVar });
-    this.timer = setInterval(this.changeTime, 1000);
+  trialDeadline = () => {
+    const milisecInSecond = 1000;
+    const deadline = new Date("Dec 18, 2019 23:59:59").getTime();
+    const today = new Date().getTime();
+    const timeLeft = Math.floor((deadline - today) / milisecInSecond);
+
+    return timeLeft;
+  };
+
+   componentDidMount() {
+    const timeLeftSeconds = this.trialDeadline();
+    const timeLeftObject = this.secondsToTime(timeLeftSeconds);
+
+    this.setState({ 
+      time: timeLeftObject, 
+      seconds: timeLeftSeconds 
+    });
+
+    this.timer = setInterval(this.countDown, 1000);
   }
 
-  changeTime = () => {
+  countDown = () => {
+    const nextSecond = this.state.seconds - 1;
     this.setState({
-      time: this.secondsToTime(this.props.seconds)
+      time: this.secondsToTime(nextSecond),
+      seconds: nextSecond,
     });
+    
+    if (nextSecond === 0) { 
+      clearInterval(this.timer);
+    }
   };
 
   render() {
