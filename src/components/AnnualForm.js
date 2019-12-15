@@ -6,7 +6,7 @@ import '../styles/components-containers.scss'
 
 function TrialForm(props) {
   return (
-    <div className='annual-form-container'>
+    <div className='form-container'>
       <AnnualOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
       <FormComponent />
     </div>

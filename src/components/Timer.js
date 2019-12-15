@@ -73,10 +73,11 @@ class Timer extends Component {
 
   render() {
     const { days, hours, minutes} = this.state.time;
+    const { isOpen } = this.props;
     return (
-      <div className='timer'>
-        <span className="timer__text">LIMITED SUMMER OFFER</span>
-        <span className='timer__time'>
+      <div className={isOpen ? 'opened-timer' : 'timer'}>
+        <span className={isOpen ? 'opened-timer__text' : "timer__text"}>LIMITED SUMMER OFFER</span>
+        <span className={isOpen ? 'opened-timer__time' : 'timer__time'}>
         {days < 10 ? `0${days}` : days}d : {hours < 10 ? `0${hours}` : hours}h :{" "}
         {minutes < 10 ? `0${minutes}` : minutes}m 
         {/* {seconds < 10 ? `0${seconds}` : seconds}s */}

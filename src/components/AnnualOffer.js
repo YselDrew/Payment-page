@@ -10,8 +10,8 @@ function AnnualPlanOffer(props) {
 
   return (
     <div className={isOpen ? "opened-annual-container" : "annual-container"}>
+      <img src={annualImg} alt="#"></img>
       <div className={isOpen ? "opened-annual-content" : "annual-content"}>
-        <img src={annualImg} alt="#"></img>
         <span
           className={
             isOpen ? "opened-annual-content__title" : "annual-content__title"
