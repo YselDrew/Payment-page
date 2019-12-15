@@ -19,8 +19,7 @@ const validationSchema = Yup.object().shape({
     .max(50, "Last Name is too long")
     .matches(/^[A-Z]/, "Last Name should start with capital letter")
     .matches(/^[A-Z][a-z]+$/, "Last Name is not valid"),
-  year: Yup.number()
-    .max(2026, "Year is not valid")
+  year: Yup.number().max(2026, "Year is not valid")
 });
 
 function creditCardNumberParse(number) {
@@ -45,8 +44,26 @@ function FormComponent() {
     <Formik
       validationSchema={validationSchema}
       initialValues={{ cardNumber: "", firstName: "", lastName: "", year: "" }}
+      // onSubmit={(values, {setSubmitting, resetForm}) => {
+      //   setSubmitting(false);
+
+      //   setTimeout(() => {
+      //     alert(JSON.stringify(values, null, 2))
+      //     resetForm();
+      //     setSubmitting(false);
+      //   }, 500)
+      // }}
     >
-      {({ values, errors, touched, handleChange, handleBlur }) => (
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        // handleSubmit,
+        // isSubmitting
+      }) => (
+        // <form onSubmit={handleSubmit}>
         <form>
           <div className="input-row">
             <label htmlFor="cardNumber">Card Number</label>
@@ -140,6 +157,7 @@ function FormComponent() {
           </div>
 
           <div className="input-row">
+            {/* <button type="submit" disabled={isSubmitting}> */}
             <button type="submit" disabled>
               Confirm
             </button>
