@@ -22,14 +22,14 @@ class Timer extends Component {
     const divisorForMinutes = secs % (60 * 60);
     const minutes = Math.floor(divisorForMinutes / 60);
 
-    // const divisorForSeconds = divisorForMinutes % 60;
-    // const seconds = Math.ceil(divisorForSeconds);
+    const divisorForSeconds = divisorForMinutes % 60;
+    const seconds = Math.ceil(divisorForSeconds);
 
     const time = {
       days: days,
       hours: hours,
       minutes: minutes,
-      // seconds: seconds
+      seconds: seconds
     };
     return time;
   }
@@ -72,7 +72,7 @@ class Timer extends Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds } = this.state.time;
+    const { days, hours, minutes} = this.state.time;
     return (
       <div className='timer'>
         <span className="timer__text">LIMITED SUMMER OFFER</span>
