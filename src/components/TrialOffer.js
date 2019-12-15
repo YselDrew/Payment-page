@@ -17,12 +17,13 @@ function TrialOffer(props) {
       <span>Rebills at $8.99 per month after your trial is completed.</span>
 
       {isOpen ? (
-        <Link to="/" role="button" onClick={openOffer}>
-          Change
+        <Link to="/" onClick={openOffer}>
+          <input type='button' value='Change'></input>
         </Link>
       ) : (
-        <Link to="/trial" role="button" onClick={openOffer}>
-          Get Started
+        <Link to="/trial" onClick={openOffer}>
+          <input type='button' value='Get Started'></input>
+          {/* Get Started */}
         </Link>
       )}
     </div>
