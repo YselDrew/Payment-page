@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "../styles/timer.scss";
+
 class Timer extends Component {
   constructor() {
     super();
@@ -20,14 +22,14 @@ class Timer extends Component {
     const divisorForMinutes = secs % (60 * 60);
     const minutes = Math.floor(divisorForMinutes / 60);
 
-    const divisorForSeconds = divisorForMinutes % 60;
-    const seconds = Math.ceil(divisorForSeconds);
+    // const divisorForSeconds = divisorForMinutes % 60;
+    // const seconds = Math.ceil(divisorForSeconds);
 
     const time = {
       days: days,
       hours: hours,
       minutes: minutes,
-      seconds: seconds
+      // seconds: seconds
     };
     return time;
   }
@@ -72,10 +74,13 @@ class Timer extends Component {
   render() {
     const { days, hours, minutes, seconds } = this.state.time;
     return (
-      <div>
+      <div className='timer'>
+        <span className="timer__text">LIMITED SUMMER OFFER</span>
+        <span className='timer__time'>
         {days < 10 ? `0${days}` : days}d : {hours < 10 ? `0${hours}` : hours}h :{" "}
-        {minutes < 10 ? `0${minutes}` : minutes} m :{" "}
-        {seconds < 10 ? `0${seconds}` : seconds}s
+        {minutes < 10 ? `0${minutes}` : minutes}m 
+        {/* {seconds < 10 ? `0${seconds}` : seconds}s */}
+        </span>
       </div>
     );
   }

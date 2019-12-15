@@ -1,0 +1,68 @@
+@import "./colors";
+
+.trial-container {
+  position: relative;
+  width: 48%;
+  text-align: center;
+  border: 2px solid $green;
+  border-radius: 10px;
+  .trial-content {
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    margin-top: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 50%;
+      height: 45%;
+    }
+    &__title {
+      margin-top: 20px;
+      color: #646464;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    &__suggestion {
+      margin-top: 20px;
+      color: #646464;
+      font-size: 11px;
+    }
+    &__price {
+      color: $green;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    &__text {
+      margin-top: 15px;
+      color: #585858;
+      font-size: 13px;
+    }
+  }
+
+  .trial-input__open {
+    background-color: #e24c2c;
+    border: 1px solid #e24c2c;
+    border-radius: 7px;
+    width: 60%;
+    height: 65px;
+    color: white;
+    -webkit-box-shadow: 0px 0px 40px -12px rgba(226, 76, 44, 1);
+    -moz-box-shadow: 0px 0px 40px -12px rgba(226, 76, 44, 1);
+    box-shadow: 0px 0px 40px -12px rgba(226, 76, 44, 1);
+    transition: 0.2s linear;
+    &:hover {
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #e24c2c;
+      border-radius: 7px;
+      width: 60%;
+      height: 65px;
+      color: #e24c2c;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
