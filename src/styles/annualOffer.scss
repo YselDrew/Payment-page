@@ -66,3 +66,22 @@
     }
   }
 }
+
+.opened-annual-container {
+  .opened-annual-content {
+    img {
+    }
+    &__title {
+    }
+    &__price {
+      span {
+      }
+    }
+    &__text {
+    }
+  }
+  .annual-input__close{
+    &:hover {
+    }
+  }
+}
