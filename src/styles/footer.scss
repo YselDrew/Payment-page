@@ -6,6 +6,7 @@
   width: 100%;
   height: 150px;
   color: lightgray;
+  font-size: 15px;
 
   &__top {
     margin: auto;
@@ -22,7 +23,6 @@
       transform: translateX(-50%);
       display: flex;
       justify-content: space-between;
-      font-size: 15px;
 
       div {
         background-color: lightgray;

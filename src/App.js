@@ -5,6 +5,7 @@ import Header from "./components/Header.js";
 import OfferComponent from "./components/OfferComponent.js";
 import TrialForm from "./components/TrialForm.js";
 import AnnualForm from "./components/AnnualForm.js";
+import Suggestions from "./components/Suggestions.js";
 import FeedbackSlider from "./components/FeedbackSlider.js";
 import Footer from "./components/Footer.js";
 
@@ -14,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOfferOpen: false,
+      isOfferOpen: false
     };
   }
 
@@ -27,14 +28,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='App'>
-          <Header />
-          <span>
+        <Header />
+        <div className="App">
+          <span className="page-title">
             Your profile is ready. Get your personalized cover letter now for
             less than the price of a cup of coffee and improve your career.
           </span>
 
-          <div>
+          <div className="offers">
             <Switch>
               <Route
                 path="/"
@@ -68,11 +69,11 @@ class App extends Component {
                 )}
               />
             </Switch>
-            <div>Best Price Guaranteed</div>
+            <Suggestions />
           </div>
           <FeedbackSlider />
-          <Footer />
         </div>
+        <Footer />
       </Router>
     );
   }

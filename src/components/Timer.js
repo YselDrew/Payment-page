@@ -41,13 +41,13 @@ class Timer extends Component {
     return timeLeft;
   };
 
-   componentDidMount() {
+  componentDidMount() {
     const timeLeftSeconds = this.trialDeadline();
     const timeLeftObject = this.secondsToTime(timeLeftSeconds);
 
-    this.setState({ 
-      time: timeLeftObject, 
-      seconds: timeLeftSeconds 
+    this.setState({
+      time: timeLeftObject,
+      seconds: timeLeftSeconds
     });
 
     this.timer = setInterval(this.countDown, 1000);
@@ -57,10 +57,10 @@ class Timer extends Component {
     const nextSecond = this.state.seconds - 1;
     this.setState({
       time: this.secondsToTime(nextSecond),
-      seconds: nextSecond,
+      seconds: nextSecond
     });
-    
-    if (nextSecond === 0) { 
+
+    if (nextSecond === 0) {
       clearInterval(this.timer);
     }
   };
