@@ -10,19 +10,69 @@
   form {
     margin-top: 20px;
 
-    .form-message {
-      color: #e24c2c;
-      font-size: 10px;
-      img {
-        position: absolute;
-        right: 25px;
-        top: 20px;
+    .input-row {
+      position: relative;
+      label {
+        display: flex;
+        margin-left: 5px;
+        margin: 0 0 5px 5px;
+        font-size: 10px;
+      }
+      input {
+        border: 1px solid #d4d9e6;
+        border-radius: 7px;
+        width: 220px;
+        height: 40px;
+        margin-right: 55px;
+        font-size: 15px;
+        padding-left: 10px;
+        // &::placeholder {
+        //   font-size: 15px;
+        // }
+      }
+    }
+
+    .select-row {
+      // background-color: pink;
+      width: 300px;
+      position: relative;
+      display: flex;
+      .select-month {
+        display: flex;
+        flex-direction: column;
+        width: 120px;
+      }
+      span {
+        margin-top: 25px;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-weight: bold;
+      }
+      .select-year {
+        display: flex;
+        flex-direction: column;
+        width: 87px;
+      }
+      label {
+        width: 100px;
+        margin: 0 0 5px 5px;
+        font-size: 10px;
+      }
+      select {
+        background-color: white;
+        border-radius: 7px;
+        height: 40px;
+        padding-left: 10px;
       }
     }
     .card-data {
       display: flex;
     }
     .person-data {
+      margin-top: 20px;
       display: flex;
     }
     .submit-row {
@@ -56,44 +106,17 @@
         color: #b6b6b6;
       }
     }
-  }
 
-  .input-row {
-    position: relative;
-    label {
-      display: flex;
-      margin-left: 5px;
-      font-size: 10px;
-    }
-    input {
-      border: 1px solid $green;
-      border-radius: 7px;
+    .form-message {
+      display: block;
       width: 220px;
-      height: 40px;
-      margin-right: 55px;
-    }
-  }
-
-  .select-row {
-    // margin-left: 55px;
-    display: flex;
-    .select-month {
-      display: flex;
-      flex-direction: column;
-    }
-    .select-year {
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      margin-left: 5px;
+      color: #e24c2c;
       font-size: 10px;
-    }
-    select {
-      background-color: white;
-      border: 1px solid $green;
-      border-radius: 7px;
-      height: 40px;
+      .invalid-icon {
+        position: absolute;
+        right: 25px;
+        top: 20px;
+      }
     }
   }
 

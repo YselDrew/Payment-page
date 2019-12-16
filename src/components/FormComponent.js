@@ -23,7 +23,11 @@ const validationSchema = Yup.object().shape({
     .max(50, "Last Name is too long")
     .matches(/^[A-Z]/, "Last Name should start with capital letter")
     .matches(/^[A-Z][a-z]+$/, "Last Name is not valid"),
-  year: Yup.number().max(2026, "Year is not valid")
+  year: Yup.number()
+    .required("Choose year")
+    .max(2026, "Year is not valid"),
+  month: Yup.string()
+    .required("Choose month")
 });
 
 function creditCardNumberParse(number) {
@@ -53,6 +57,7 @@ function FormComponent() {
           cardNumber: "",
           firstName: "",
           lastName: "",
+          month: "",
           year: ""
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -99,7 +104,15 @@ function FormComponent() {
               <div className="select-row">
                 <div className="select-month">
                 <label htmlFor="month">Exp. Month</label>
-                <select name="month" id="month">
+                {/* <select name="month" id="month"> */}
+                <select
+                  name="month"
+                  id="month"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.month}
+                >
+                  <option value="" disabled selected hidden>Month</option>
                   <option value="1">1 - January</option>
                   <option value="2">2 - February</option>
                   <option value="3">3 - March</option>
@@ -113,8 +126,10 @@ function FormComponent() {
                   <option value="11">11 - November</option>
                   <option value="12">12 - December</option>
                 </select>
+                <Error touched={touched.month} message={errors.month} />
+                <Error touched={touched.year} message={errors.year} />
                 </div>
-                  /
+                <span>/</span>  
                 <div className='select-year'>
                 <label htmlFor="year">Exp. year</label>
                 <select
@@ -124,6 +139,7 @@ function FormComponent() {
                   onBlur={handleBlur}
                   value={values.year}
                 >
+                  <option value="" default selected hidden>Year</option>
                   <option value="2019">2019</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -137,7 +153,6 @@ function FormComponent() {
                   <option value="2029">2029</option>
                   <option value="2030">2030</option>
                 </select>
-                <Error touched={touched.year} message={errors.year} />
                 </div>
               </div>
             </div>
