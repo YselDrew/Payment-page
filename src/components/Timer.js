@@ -36,7 +36,7 @@ class Timer extends Component {
 
   trialDeadline = () => {
     const milisecInSecond = 1000;
-    const deadline = new Date("Dec 18, 2019 23:59:59").getTime();
+    const deadline = new Date("Dec 31, 2019 23:59:59").getTime();
     const today = new Date().getTime();
     const timeLeft = Math.floor((deadline - today) / milisecInSecond);
 
@@ -67,20 +67,22 @@ class Timer extends Component {
     }
   };
 
-  componentWillUnmount(){
-      clearInterval(this.timer);
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
-    const { days, hours, minutes} = this.state.time;
+    const { days, hours, minutes } = this.state.time;
     const { isOpen } = this.props;
     return (
-      <div className={isOpen ? 'opened-timer' : 'timer'}>
-        <span className={isOpen ? 'opened-timer__text' : "timer__text"}>LIMITED SUMMER OFFER</span>
-        <span className={isOpen ? 'opened-timer__time' : 'timer__time'}>
-        {days < 10 ? `0${days}` : days}d : {hours < 10 ? `0${hours}` : hours}h :{" "}
-        {minutes < 10 ? `0${minutes}` : minutes}m 
-        {/* {seconds < 10 ? `0${seconds}` : seconds}s */}
+      <div className={isOpen ? "opened-timer" : "timer"}>
+        <span className={isOpen ? "opened-timer__text" : "timer__text"}>
+          LIMITED SUMMER OFFER
+        </span>
+        <span className={isOpen ? "opened-timer__time" : "timer__time"}>
+          {days < 10 ? `0${days}` : days}d : {hours < 10 ? `0${hours}` : hours}h
+          : {minutes < 10 ? `0${minutes}` : minutes}m
+          {/* {seconds < 10 ? `0${seconds}` : seconds}s */}
         </span>
       </div>
     );

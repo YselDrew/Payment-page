@@ -20,8 +20,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window.location.pathname !== '/') {
-      this.openOffer()
+    if (window.location.pathname !== "/") {
+      this.openOffer();
     }
   }
 

@@ -9,7 +9,7 @@ function TrialOffer(props) {
   const { isOpen, openOffer } = props;
   return (
     <div className={isOpen ? "opened-trial-container" : "trial-container"}>
-      <Timer isOpen={isOpen}/>
+      <Timer isOpen={isOpen} />
       <img src={trialImg} alt="#"></img>
       <div className={isOpen ? "opened-trial-content" : "trial-content"}>
         <span
@@ -27,13 +27,13 @@ function TrialOffer(props) {
           }
         >
           The first week only for
-        <span
-          className={
-            isOpen ? "opened-trial-content__price" : "trial-content__price"
-          }
-        >
-          $0.99
-        </span>
+          <span
+            className={
+              isOpen ? "opened-trial-content__price" : "trial-content__price"
+            }
+          >
+            $0.99
+          </span>
         </span>
         <span
           className={

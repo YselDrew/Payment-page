@@ -1,7 +1,7 @@
 import React from "react";
 
-import errorImg from "../images/invalidFormField.png"
-import successImg from "../images/validFormField.png"
+import errorImg from "../images/invalidFormField.png";
+import successImg from "../images/validFormField.png";
 
 const Error = ({ touched, message }) => {
   if (!touched) {
@@ -9,17 +9,17 @@ const Error = ({ touched, message }) => {
   }
   if (message) {
     return (
-    <div className="form-message">
+      <div className="form-message">
         {message}
         {/* <img className='invalid-icon' src={errorImg} alt='Error'></img> */}
-    </div>
-    )
+      </div>
+    );
   }
   return (
-  <div className="form-message">
+    <div className="form-message">
       {/* <img className='valid-icon' src={successImg} alt='Success'></img> */}
-  </div>
-  )
+    </div>
+  );
 };
 
 export default Error;

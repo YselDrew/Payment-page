@@ -6,7 +6,7 @@ import "../styles/suggestions.scss";
 function Suggestions() {
   return (
     <div className="suggestions">
-      <img src={suggestionsTitleImg} alt='Suggestion Title'></img>
+      <img src={suggestionsTitleImg} alt="Suggestion Title"></img>
       <div className="suggestions__text">
         <span>Your plan will include:</span>
         <ul>

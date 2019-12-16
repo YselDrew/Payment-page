@@ -8,7 +8,7 @@ function Footer() {
     <div className="footer">
       <div className="footer__top">
         <img src={footerLogo} alt="My Letter Logo"></img>
-        <div className='footer__top--text'>
+        <div className="footer__top--text">
           <span>Private Policy</span>
           <div></div>
           <span>Term Of Use</span>

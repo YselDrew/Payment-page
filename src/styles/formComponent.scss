@@ -9,7 +9,6 @@
   }
   form {
     margin-top: 20px;
-
     .input-row {
       position: relative;
       label {
@@ -26,21 +25,17 @@
         margin-right: 55px;
         font-size: 15px;
         padding-left: 10px;
-        // &::placeholder {
-        //   font-size: 15px;
-        // }
       }
     }
 
     .select-row {
-      // background-color: pink;
       width: 300px;
       position: relative;
       display: flex;
       .select-month {
         display: flex;
         flex-direction: column;
-        width: 120px;
+        width: 135px;
       }
       span {
         margin-top: 25px;
@@ -54,7 +49,7 @@
       .select-year {
         display: flex;
         flex-direction: column;
-        width: 87px;
+        width: 72px;
       }
       label {
         width: 100px;
@@ -62,10 +57,18 @@
         font-size: 10px;
       }
       select {
+        border: 1px solid #d4d9e6;
         background-color: white;
         border-radius: 7px;
         height: 40px;
         padding-left: 10px;
+        font-size: 15px;
+        background: url(../images/select.png);
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: 7px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
       }
     }
     .card-data {
@@ -112,11 +115,6 @@
       width: 220px;
       color: #e24c2c;
       font-size: 10px;
-      .invalid-icon {
-        position: absolute;
-        right: 25px;
-        top: 20px;
-      }
     }
   }
 

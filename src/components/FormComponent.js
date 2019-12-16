@@ -1,56 +1,20 @@
 import React from "react";
 import { Formik } from "formik";
-import * as Yup from "yup";
+import { validationSchema, creditCardNumberParse } from "./Validator.js";
 import Error from "./Error";
 
 import "../styles/formComponent.scss";
 import safeImg from "../images/safe.png";
 import creditCardsImg from "../images/creditCards.png";
 
-const validationSchema = Yup.object().shape({
-  cardNumber: Yup.string()
-    .required("Credit Card Number is not valid")
-    .min(12, "Minimum length 12"),
-  firstName: Yup.string()
-    .required("Must enter First Name")
-    .min(1, "First Name is too short")
-    .max(50, "First Name is too long")
-    .matches(/^[A-Z]/, "Name should start with capital letter")
-    .matches(/^[A-Z][a-z]+$/, "First Name is not valid"),
-  lastName: Yup.string()
-    .required("Must enter Last Name")
-    .min(1, "Last Name is too short")
-    .max(50, "Last Name is too long")
-    .matches(/^[A-Z]/, "Last Name should start with capital letter")
-    .matches(/^[A-Z][a-z]+$/, "Last Name is not valid"),
-  year: Yup.number()
-    .required("Choose year")
-    .max(2026, "Year is not valid"),
-  month: Yup.string()
-    .required("Choose month")
-});
-
-function creditCardNumberParse(number) {
-  const v = number.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
-  const matches = v.match(/\d{4,16}/g);
-  const match = (matches && matches[0]) || "";
-  const parts = [];
-
-  for (let i = 0, len = match.length; i < len; i += 4) {
-    parts.push(match.substring(i, i + 4));
-  }
-
-  if (parts.length) {
-    return parts.join(" ");
-  } else {
-    return number;
-  }
-}
-
-function FormComponent() {
+function FormComponent(props) {
   return (
-    <div className='purchase-form'>
-      <img className='credit-cards' src={creditCardsImg} alt="Credit Cards"></img>
+    <div className="purchase-form">
+      <img
+        className="credit-cards"
+        src={creditCardsImg}
+        alt="Credit Cards"
+      ></img>
       <Formik
         validationSchema={validationSchema}
         initialValues={{
@@ -103,56 +67,60 @@ function FormComponent() {
 
               <div className="select-row">
                 <div className="select-month">
-                <label htmlFor="month">Exp. Month</label>
-                {/* <select name="month" id="month"> */}
-                <select
-                  name="month"
-                  id="month"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.month}
-                >
-                  <option value="" disabled selected hidden>Month</option>
-                  <option value="1">1 - January</option>
-                  <option value="2">2 - February</option>
-                  <option value="3">3 - March</option>
-                  <option value="4">4 - April</option>
-                  <option value="5">5 - May</option>
-                  <option value="6">6 - June</option>
-                  <option value="7">7 - July</option>
-                  <option value="8">8 - August</option>
-                  <option value="9">9 - September</option>
-                  <option value="10">10 - October</option>
-                  <option value="11">11 - November</option>
-                  <option value="12">12 - December</option>
-                </select>
-                <Error touched={touched.month} message={errors.month} />
-                <Error touched={touched.year} message={errors.year} />
+                  <label htmlFor="month">Exp. Month</label>
+                  {/* <select name="month" id="month"> */}
+                  <select
+                    name="month"
+                    id="month"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.month}
+                  >
+                    <option value="" disabled selected hidden>
+                      Month
+                    </option>
+                    <option value="1">1 - January</option>
+                    <option value="2">2 - February</option>
+                    <option value="3">3 - March</option>
+                    <option value="4">4 - April</option>
+                    <option value="5">5 - May</option>
+                    <option value="6">6 - June</option>
+                    <option value="7">7 - July</option>
+                    <option value="8">8 - August</option>
+                    <option value="9">9 - September</option>
+                    <option value="10">10 - October</option>
+                    <option value="11">11 - November</option>
+                    <option value="12">12 - December</option>
+                  </select>
+                  <Error touched={touched.month} message={errors.month} />
+                  <Error touched={touched.year} message={errors.year} />
                 </div>
-                <span>/</span>  
-                <div className='select-year'>
-                <label htmlFor="year">Exp. year</label>
-                <select
-                  name="year"
-                  id="year"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.year}
-                >
-                  <option value="" default selected hidden>Year</option>
-                  <option value="2019">2019</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                  <option value="2024">2024</option>
-                  <option value="2025">2025</option>
-                  <option value="2026">2026</option>
-                  <option value="2027">2027</option>
-                  <option value="2028">2028</option>
-                  <option value="2029">2029</option>
-                  <option value="2030">2030</option>
-                </select>
+                <span>/</span>
+                <div className="select-year">
+                  <label htmlFor="year">Exp. year</label>
+                  <select
+                    name="year"
+                    id="year"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.year}
+                  >
+                    <option value="" default selected hidden>
+                      Year
+                    </option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                  </select>
                 </div>
               </div>
             </div>

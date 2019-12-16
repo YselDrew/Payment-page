@@ -26,7 +26,7 @@ class FeedbackSlider extends Component {
       slidesToShow: 2,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 6000 
+      autoplaySpeed: 6000
     };
 
     return <Slider {...settings}>{feedbackElement}</Slider>;
