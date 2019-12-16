@@ -1,7 +1,7 @@
 import React from "react";
 
-import errorImg from "../images/invalidFormField.png";
-import successImg from "../images/validFormField.png";
+// import errorImg from "../images/invalidFormField.png";
+// import successImg from "../images/validFormField.png";
 
 const Error = ({ touched, message }) => {
   if (!touched) {

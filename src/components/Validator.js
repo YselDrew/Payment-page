@@ -3,7 +3,8 @@ import * as Yup from "yup";
 export const validationSchema = Yup.object().shape({
   cardNumber: Yup.string()
     .required("Credit Card Number is not valid")
-    .min(12, "Minimum length 12"),
+    .min(14, "Minimum length 12")
+    .matches(/^\d+\s\d+\s\d+[\s\d+]*$/, "Credit Card number is not valid"),
   firstName: Yup.string()
     .required("Must enter First Name")
     .min(1, "First Name is too short")

@@ -76,7 +76,7 @@ function FormComponent(props) {
                     onBlur={handleBlur}
                     value={values.month}
                   >
-                    <option value="" disabled selected hidden>
+                    <option value="" default hidden>
                       Month
                     </option>
                     <option value="1">1 - January</option>
@@ -105,7 +105,7 @@ function FormComponent(props) {
                     onBlur={handleBlur}
                     value={values.year}
                   >
-                    <option value="" default selected hidden>
+                    <option value="" default hidden>
                       Year
                     </option>
                     <option value="2019">2019</option>
