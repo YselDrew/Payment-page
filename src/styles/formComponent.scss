@@ -9,6 +9,16 @@
   }
   form {
     margin-top: 20px;
+
+    .form-message {
+      color: #e24c2c;
+      font-size: 10px;
+      img {
+        position: absolute;
+        right: 25px;
+        top: 20px;
+      }
+    }
     .card-data {
       display: flex;
     }
@@ -16,6 +26,7 @@
       display: flex;
     }
     .submit-row {
+      margin-top: 20px;
       display: flex;
       button {
         background-color: #e24c2c;
@@ -48,6 +59,7 @@
   }
 
   .input-row {
+    position: relative;
     label {
       display: flex;
       margin-left: 5px;
@@ -58,14 +70,27 @@
       border-radius: 7px;
       width: 220px;
       height: 40px;
+      margin-right: 55px;
     }
   }
+
   .select-row {
+    // margin-left: 55px;
+    display: flex;
+    .select-month {
+      display: flex;
+      flex-direction: column;
+    }
+    .select-year {
+      display: flex;
+      flex-direction: column;
+    }
     label {
       margin-left: 5px;
       font-size: 10px;
     }
     select {
+      background-color: white;
       border: 1px solid $green;
       border-radius: 7px;
       height: 40px;

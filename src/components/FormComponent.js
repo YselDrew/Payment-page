@@ -97,6 +97,7 @@ function FormComponent() {
               </div>
 
               <div className="select-row">
+                <div className="select-month">
                 <label htmlFor="month">Exp. Month</label>
                 <select name="month" id="month">
                   <option value="1">1 - January</option>
@@ -112,7 +113,10 @@ function FormComponent() {
                   <option value="11">11 - November</option>
                   <option value="12">12 - December</option>
                 </select>
-                /<label htmlFor="year">Exp. year</label>
+                </div>
+                  /
+                <div className='select-year'>
+                <label htmlFor="year">Exp. year</label>
                 <select
                   name="year"
                   id="year"
@@ -134,6 +138,7 @@ function FormComponent() {
                   <option value="2030">2030</option>
                 </select>
                 <Error touched={touched.year} message={errors.year} />
+                </div>
               </div>
             </div>
 
