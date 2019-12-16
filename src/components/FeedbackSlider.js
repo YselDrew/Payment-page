@@ -9,7 +9,7 @@ import "../styles/feedbackSlider.scss";
 
 const feedbackElement = feedback.map(item => (
   <div key={item.id} className="slide">
-    <img src={item.img} alt='#'></img>
+    <img src={item.img} alt="#"></img>
     <div className="text">
       <span className="name">{item.name}</span>
       <span className="quote">{item.text}</span>
@@ -24,7 +24,9 @@ class FeedbackSlider extends Component {
       infinite: false,
       speed: 500,
       slidesToShow: 2,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 6000 
     };
 
     return <Slider {...settings}>{feedbackElement}</Slider>;

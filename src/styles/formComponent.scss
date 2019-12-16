@@ -1,0 +1,85 @@
+@import "./colors";
+
+.purchase-form {
+  margin-top: 35px;
+
+  .credit-cards {
+    width: 470px;
+    height: 30px;
+  }
+  form {
+    margin-top: 20px;
+    .card-data {
+      display: flex;
+    }
+    .person-data {
+      display: flex;
+    }
+    .submit-row {
+      display: flex;
+      button {
+        background-color: #e24c2c;
+        border: 1px solid #e24c2c;
+        border-radius: 7px;
+        width: 130px;
+        height: 40px;
+        color: white;
+        font-weight: bold;
+        transition: 0.2s linear;
+        &:hover {
+          cursor: pointer;
+          background-color: white;
+          border: 2px solid #e24c2c;
+          border-radius: 7px;
+          color: #e24c2c;
+        }
+      }
+      img {
+        margin: 15px 0 0 20px;
+        width: 10px;
+        height: 12px;
+      }
+      span {
+        margin: 14px 0 0 7px;
+        font-size: 11px;
+        color: #b6b6b6;
+      }
+    }
+  }
+
+  .input-row {
+    label {
+      display: flex;
+      margin-left: 5px;
+      font-size: 10px;
+    }
+    input {
+      border: 1px solid $green;
+      border-radius: 7px;
+      width: 220px;
+      height: 40px;
+    }
+  }
+  .select-row {
+    label {
+      margin-left: 5px;
+      font-size: 10px;
+    }
+    select {
+      border: 1px solid $green;
+      border-radius: 7px;
+      height: 40px;
+    }
+  }
+
+  .submit-text {
+    display: block;
+    margin-top: 15px;
+    width: 400px;
+    font-size: 10px;
+    span {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
