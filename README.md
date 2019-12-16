@@ -19,3 +19,7 @@ Install [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
 #### Start application:
 
 `npm start`
+
+## Application preview
+
+![Website preview](demo/demo.gif)
