@@ -10,7 +10,7 @@ function AnnualPlanOffer({ location }) {
   const isOpen = location.pathname === '/annual'
   return (
     <div className={isOpen ? "opened-annual-container" : "annual-container"}>
-      <img src={annualImg} alt="#"></img>
+      <img src={annualImg} alt="#"/>
       <div className={isOpen ? "opened-annual-content" : "annual-content"}>
         <span
           className={
@@ -40,7 +40,7 @@ function AnnualPlanOffer({ location }) {
             className="annual-input__close"
             type="button"
             value="Change"
-          ></input>
+          />
         </Link>
       ) : (
         <Link to="/annual">
@@ -48,7 +48,7 @@ function AnnualPlanOffer({ location }) {
             className="annual-input__open"
             type="button"
             value="Get Started"
-          ></input>
+          />
         </Link>
       )}
     </div>

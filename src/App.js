@@ -1,37 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "./components/Header.js";
-import OfferComponent from "./components/OfferComponent.js";
-import TrialForm from "./components/TrialForm.js";
-import AnnualForm from "./components/AnnualForm.js";
-import Suggestions from "./components/Suggestions.js";
-import FeedbackSlider from "./components/FeedbackSlider.js";
-import Footer from "./components/Footer.js";
+import Header from "./components/Header";
+import TrialOffer from "./components/TrialOffer";
+import AnnualOffer from "./components/AnnualOffer";
+import FormComponent from "./components/FormComponent";
+import Suggestions from "./components/Suggestions";
+import FeedbackSlider from "./components/FeedbackSlider";
+import Footer from "./components/Footer";
 
 import "./styles/App.scss";
+import "./styles/components-containers.scss";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOfferOpen: false
-    };
-  }
-
-  //delete
-  // componentDidMount() {
-  //   if (window.location.pathname !== "/") {
-  //     this.openOffer();
-  //   }
-  // }
-  //
-  // openOffer = () => {
-  //   this.setState({
-  //     isOfferOpen: !this.state.isOfferOpen
-  //   });
-  // };
-// delete
   render() {
     return (
       <Router>
@@ -47,32 +28,29 @@ class App extends Component {
               <Route
                 path="/"
                 exact
-                component={props => (
-                  <OfferComponent
-                    {...props}
-                    openOffer={this.openOffer}
-                    isOfferOpen={this.state.isOfferOpen}
-                  />
+                component={() => (
+                  <div className="offers-container">
+                    <TrialOffer />
+                    <AnnualOffer />
+                  </div>
                 )}
               />
               <Route
                 path="/trial"
-                render={props => (
-                  <TrialForm
-                    {...props}
-                    openOffer={this.openOffer}
-                    isOfferOpen={this.state.isOfferOpen}
-                  />
+                render={() => (
+                  <div className="form-container">
+                    <TrialOffer />
+                    <FormComponent />
+                  </div>
                 )}
               />
               <Route
                 path="/annual"
-                component={props => (
-                  <AnnualForm
-                    {...props}
-                    openOffer={this.openOffer}
-                    isOfferOpen={this.state.isOfferOpen}
-                  />
+                component={() => (
+                  <div className='form-container'>
+                    <AnnualOffer />
+                    <FormComponent />
+                  </div>
                 )}
               />
             </Switch>

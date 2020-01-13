@@ -16,8 +16,7 @@ class Timer extends Component {
   secondsToTime(secs) {
     const days = Math.floor(secs / (24 * 3600));
 
-    const divisorForHours = secs % (24 * 3600);
-    const hours = Math.floor(divisorForHours / (60 * 60));
+    const divisorForHours = secs % (24 * 3600); const hours = Math.floor(divisorForHours / (60 * 60));
 
     const divisorForMinutes = secs % (60 * 60);
     const minutes = Math.floor(divisorForMinutes / 60);
@@ -36,7 +35,7 @@ class Timer extends Component {
 
   trialDeadline = () => {
     const milisecInSecond = 1000;
-    const deadline = new Date("Dec 31, 2019 23:59:59").getTime();
+    const deadline = new Date("Dec 31, 2020 23:59:59").getTime();
     const today = new Date().getTime();
     const timeLeft = Math.floor((deadline - today) / milisecInSecond);
 
