@@ -2,39 +2,54 @@ import React, { Component } from "react";
 
 import "../styles/timer.scss";
 
+const milisecInSecond = 1000;
+
+function convertSecondsToTime(secs) {
+  const days = Math.floor(secs / (24 * 3600));
+
+  const divisorForHours = secs % (24 * 3600); 
+  const hours = Math.floor(divisorForHours / (60 * 60));
+
+  const divisorForMinutes = secs % (60 * 60);
+  const minutes = Math.floor(divisorForMinutes / 60);
+
+  const divisorForSeconds = divisorForMinutes % 60;
+  const seconds = Math.ceil(divisorForSeconds);
+
+  const time = {
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  };
+  return time;
+}
+
+function formatTimeToString(days, hours, minutes) {
+  const d = days.toString().padStart(2, '0')
+  const h = hours.toString().padStart(2, '0')
+  const m = minutes.toString().padStart(2, '0')
+
+  return `${d}d : ${h}h : ${m}m`
+}
+
 class Timer extends Component {
   constructor() {
     super();
+    
+    const timeLeftSeconds = this.trialDeadline();
+    const timeLeftObject = convertSecondsToTime(timeLeftSeconds)
+
+    this.timer = null;
+
     this.state = {
-      time: {},
-      seconds: 0
-    };
-
-    this.timer = 0;
+      time: timeLeftObject,
+      seconds: timeLeftSeconds,
+    }
   }
 
-  secondsToTime(secs) {
-    const days = Math.floor(secs / (24 * 3600));
-
-    const divisorForHours = secs % (24 * 3600); const hours = Math.floor(divisorForHours / (60 * 60));
-
-    const divisorForMinutes = secs % (60 * 60);
-    const minutes = Math.floor(divisorForMinutes / 60);
-
-    const divisorForSeconds = divisorForMinutes % 60;
-    const seconds = Math.ceil(divisorForSeconds);
-
-    const time = {
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds
-    };
-    return time;
-  }
 
   trialDeadline = () => {
-    const milisecInSecond = 1000;
     const deadline = new Date("Dec 31, 2020 23:59:59").getTime();
     const today = new Date().getTime();
     const timeLeft = Math.floor((deadline - today) / milisecInSecond);
@@ -43,21 +58,13 @@ class Timer extends Component {
   };
 
   componentDidMount() {
-    const timeLeftSeconds = this.trialDeadline();
-    const timeLeftObject = this.secondsToTime(timeLeftSeconds);
-
-    this.setState({
-      time: timeLeftObject,
-      seconds: timeLeftSeconds
-    });
-
     this.timer = setInterval(this.countDown, 1000);
   }
 
   countDown = () => {
     const nextSecond = this.state.seconds - 1;
     this.setState({
-      time: this.secondsToTime(nextSecond),
+      time: convertSecondsToTime(nextSecond),
       seconds: nextSecond
     });
 
@@ -79,9 +86,7 @@ class Timer extends Component {
           LIMITED SUMMER OFFER
         </span>
         <span className={isOpen ? "opened-timer__time" : "timer__time"}>
-          {days < 10 ? `0${days}` : days}d : {hours < 10 ? `0${hours}` : hours}h
-          : {minutes < 10 ? `0${minutes}` : minutes}m
-          {/* {seconds < 10 ? `0${seconds}` : seconds}s */}
+          {formatTimeToString(days, hours, minutes)}
         </span>
       </div>
     );
