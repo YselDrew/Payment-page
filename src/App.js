@@ -19,18 +19,19 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    if (window.location.pathname !== "/") {
-      this.openOffer();
-    }
-  }
-
-  openOffer = () => {
-    this.setState({
-      isOfferOpen: !this.state.isOfferOpen
-    });
-  };
-
+  //delete
+  // componentDidMount() {
+  //   if (window.location.pathname !== "/") {
+  //     this.openOffer();
+  //   }
+  // }
+  //
+  // openOffer = () => {
+  //   this.setState({
+  //     isOfferOpen: !this.state.isOfferOpen
+  //   });
+  // };
+// delete
   render() {
     return (
       <Router>

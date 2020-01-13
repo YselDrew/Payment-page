@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 import Timer from "./Timer.js";
 import trialImg from "../images/trial.png";
 import "../styles/trialOffer.scss";
 
-function TrialOffer(props) {
-  const { isOpen, openOffer } = props;
+function TrialOffer({ location }) {
+  const isOpen = location.pathname === '/trial'
+
   return (
     <div className={isOpen ? "opened-trial-container" : "trial-container"}>
       <Timer isOpen={isOpen} />
@@ -45,7 +47,7 @@ function TrialOffer(props) {
       </div>
 
       {isOpen ? (
-        <Link to="/" onClick={openOffer}>
+        <Link to="/">
           <input
             className="trial-input__close"
             type="button"
@@ -53,7 +55,7 @@ function TrialOffer(props) {
           ></input>
         </Link>
       ) : (
-        <Link to="/trial" onClick={openOffer}>
+        <Link to="/trial">
           <input
             className="trial-input__open"
             type="button"
@@ -65,4 +67,4 @@ function TrialOffer(props) {
   );
 }
 
-export default TrialOffer;
+export default withRouter(TrialOffer);

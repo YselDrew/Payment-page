@@ -7,12 +7,8 @@ import "../styles/components-containers.scss";
 function OfferComponent(props) {
   return (
     <div className="offers-container">
-      <TrialOffer
-        deadline={props.deadline}
-        openOffer={props.openOffer}
-        isOpen={props.isOfferOpen}
-      />
-      <AnnualOffer openOffer={props.openOffer} isOpen={props.isOfferOpen} />
+      <TrialOffer />
+      <AnnualOffer />
     </div>
   );
 }
