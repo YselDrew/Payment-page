@@ -23,7 +23,7 @@ export const validationSchema = Yup.object().shape({
   month: Yup.string().required("Choose month")
 });
 
-export const creditCardNumberParse = number => {
+export const parseCreditCardNumber = number => {
   const v = number.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
   const matches = v.match(/\d{4,16}/g);
   const match = (matches && matches[0]) || "";
@@ -40,4 +40,4 @@ export const creditCardNumberParse = number => {
   }
 };
 
-export default creditCardNumberParse;
+// export default creditCardNumberParse;

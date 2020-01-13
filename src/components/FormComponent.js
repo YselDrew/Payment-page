@@ -1,38 +1,72 @@
 import React from "react";
-import { Formik } from "formik";
-import { validationSchema, creditCardNumberParse } from "./Validator.js";
+import { Formik, Form } from "formik";
+import { validationSchema, parseCreditCardNumber } from "./Validator.js";
 import Error from "./Error";
 
 import "../styles/formComponent.scss";
 import safeImg from "../images/safe.png";
 import creditCardsImg from "../images/creditCards.png";
 
-function FormComponent(props) {
+const initialValues = {
+  cardNumber: "",
+  firstName: "",
+  lastName: "",
+  month: "",
+  year: ""
+}
+
+const years = [
+  "2019",
+  "2020",
+  "2021",
+  "2022",
+  "2023",
+  "2024",
+  "2025",
+  "2026",
+  "2027",
+  "2028",
+  "2029",
+  "2030",
+]
+
+const months = [
+  { number: 1, name: 'January' },
+  { number: 2, name: 'February' },
+  { number: 3, name: 'March' },
+  { number: 4, name: 'April' },
+  { number: 5, name: 'May' },
+  { number: 6, name: 'June' },
+  { number: 7, name: 'July' },
+  { number: 8, name: 'August' },
+  { number: 9, name: 'September' },
+  { number: 10, name: 'October' },
+  { number: 11, name: 'November' },
+  { number: 12, name: 'December' },
+]
+
+const onSubmit = (values, { setSubmitting, resetForm }) => {
+  setSubmitting(false);
+
+  setTimeout(() => {
+    alert(JSON.stringify(values, null, 2));
+    resetForm();
+    setSubmitting(false);
+  }, 500);
+}
+
+function FormComponent() {
   return (
     <div className="purchase-form">
       <img
         className="credit-cards"
         src={creditCardsImg}
         alt="Credit Cards"
-      ></img>
+      />
       <Formik
         validationSchema={validationSchema}
-        initialValues={{
-          cardNumber: "",
-          firstName: "",
-          lastName: "",
-          month: "",
-          year: ""
-        }}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          setSubmitting(false);
-
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            resetForm();
-            setSubmitting(false);
-          }, 500);
-        }}
+        initialValues={initialValues}
+        onSubmit={onSubmit}
       >
         {({
           values,
@@ -40,10 +74,9 @@ function FormComponent(props) {
           touched,
           handleChange,
           handleBlur,
-          handleSubmit,
           isSubmitting
         }) => (
-          <form onSubmit={handleSubmit}>
+          <Form>
             <div className="card-data">
               <div className="input-row">
                 <label htmlFor="cardNumber">Card Number</label>
@@ -54,7 +87,7 @@ function FormComponent(props) {
                   placeholder="Enter card number"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={creditCardNumberParse(values.cardNumber)}
+                  value={parseCreditCardNumber(values.cardNumber)}
                   className={
                     touched.cardNumber && errors.cardNumber ? "has-error" : null
                   }
@@ -68,7 +101,6 @@ function FormComponent(props) {
               <div className="select-row">
                 <div className="select-month">
                   <label htmlFor="month">Exp. Month</label>
-                  {/* <select name="month" id="month"> */}
                   <select
                     name="month"
                     id="month"
@@ -79,18 +111,11 @@ function FormComponent(props) {
                     <option value="" default hidden>
                       Month
                     </option>
-                    <option value="1">1 - January</option>
-                    <option value="2">2 - February</option>
-                    <option value="3">3 - March</option>
-                    <option value="4">4 - April</option>
-                    <option value="5">5 - May</option>
-                    <option value="6">6 - June</option>
-                    <option value="7">7 - July</option>
-                    <option value="8">8 - August</option>
-                    <option value="9">9 - September</option>
-                    <option value="10">10 - October</option>
-                    <option value="11">11 - November</option>
-                    <option value="12">12 - December</option>
+                    {months.map(month => (
+                      <option value={month.number} key={month.number}>
+                        {`${month.number} - ${month.name}`}
+                      </option>
+                    ))}
                   </select>
                   <Error touched={touched.month} message={errors.month} />
                   <Error touched={touched.year} message={errors.year} />
@@ -108,18 +133,9 @@ function FormComponent(props) {
                     <option value="" default hidden>
                       Year
                     </option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
+                    {years.map(year => ( 
+                      <option key={year} value={year}>{year}</option> 
+                    ))}
                   </select>
                 </div>
               </div>
@@ -165,10 +181,10 @@ function FormComponent(props) {
               <button type="submit" disabled={isSubmitting}>
                 Confirm
               </button>
-              <img src={safeImg} alt="safe"></img>
+              <img src={safeImg} alt="safe"/>
               <span>Secure credit card payment</span>
             </div>
-          </form>
+          </Form>
         )}
       </Formik>
       <span className="submit-text">
