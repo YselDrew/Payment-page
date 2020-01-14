@@ -1,4 +1,4 @@
-@import "./colors";
+@import "../colors";
 
 .timer {
   width: 100%;
@@ -9,19 +9,19 @@
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  &__text {
+  .text {
     color: white;
     margin-top: 10px;
     font-size: 24px;
   }
-  &__time {
+  .time {
     margin-top: 5px;
     font-size: 21px;
     color: #dbdbdb;
   }
 }
 
-.opened-timer {
+.openedTimer {
   position: absolute;
   width: 100%;
   height: 40px;
@@ -30,12 +30,12 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  &__text {
+  .openedText {
     margin: 8px 0 0 15px;
     color: white;
     font-size: 15px;
   }
-  &__time {
+  .openedTime {
     margin: 8px 15px 0 0;
     color: #dbdbdb;
     font-size: 15px;

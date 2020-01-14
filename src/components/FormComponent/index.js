@@ -3,9 +3,9 @@ import { Formik, Form } from "formik";
 import { validationSchema, parseCreditCardNumber } from "./Validator.js";
 import Error from "./Error";
 
-import "../styles/formComponent.scss";
-import safeImg from "../images/safe.png";
-import creditCardsImg from "../images/creditCards.png";
+import styles from "./styles.module.scss";
+import safeImg from "../../images/safe.png";
+import creditCardsImg from "../../images/creditCards.png";
 
 const initialValues = {
   cardNumber: "",
@@ -57,9 +57,9 @@ const onSubmit = (values, { setSubmitting, resetForm }) => {
 
 function FormComponent() {
   return (
-    <div className="purchase-form">
+    <div className={styles.purchaseForm}>
       <img
-        className="credit-cards"
+        className={styles.creditCards}
         src={creditCardsImg}
         alt="Credit Cards"
       />
@@ -77,8 +77,8 @@ function FormComponent() {
           isSubmitting
         }) => (
           <Form>
-            <div className="card-data">
-              <div className="input-row">
+            <div className={styles.cardData}>
+              <div className={styles.inputRow}>
                 <label htmlFor="cardNumber">Card Number</label>
                 <input
                   type="text"
@@ -98,8 +98,8 @@ function FormComponent() {
                 />
               </div>
 
-              <div className="select-row">
-                <div className="select-month">
+              <div className={styles.selectRow}>
+                <div className={styles.selectMonth}>
                   <label htmlFor="month">Exp. Month</label>
                   <select
                     name="month"
@@ -121,7 +121,7 @@ function FormComponent() {
                   <Error touched={touched.year} message={errors.year} />
                 </div>
                 <span>/</span>
-                <div className="select-year">
+                <div className={styles.selectYear}>
                   <label htmlFor="year">Exp. year</label>
                   <select
                     name="year"
@@ -141,8 +141,8 @@ function FormComponent() {
               </div>
             </div>
 
-            <div className="person-data">
-              <div className="input-row">
+            <div className={styles.personData}>
+              <div className={styles.inputRow}>
                 <label htmlFor="firstName">Cardholder First Name</label>
                 <input
                   type="text"
@@ -159,7 +159,7 @@ function FormComponent() {
                 <Error touched={touched.firstName} message={errors.firstName} />
               </div>
 
-              <div className="input-row">
+              <div className={styles.inputRow}>
                 <label htmlFor="lastName">Cardholder Last Name</label>
                 <input
                   type="text"
@@ -177,7 +177,7 @@ function FormComponent() {
               </div>
             </div>
 
-            <div className="submit-row">
+            <div className={styles.submitRow}>
               <button type="submit" disabled={isSubmitting}>
                 Confirm
               </button>
@@ -187,7 +187,7 @@ function FormComponent() {
           </Form>
         )}
       </Formik>
-      <span className="submit-text">
+      <span className={styles.submitText}>
         Your card will be automatically attached to your profile, you can remove
         it at any time. By clicking “Confirm” you agree to the{" "}
         <span>Terms & Conditions</span>

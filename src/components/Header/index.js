@@ -1,12 +1,12 @@
 import React from "react";
-import headerLogo from "../images/headerLogo.png";
+import headerLogo from "../../images/headerLogo.png";
 
-import "../styles/header.scss";
+import styles from "./styles.module.scss";
 
 function Header() {
   return (
-    <div className="header">
-      <div className="header__content">
+    <div className={styles.header}>
+      <div className={styles.content}>
         <img src={headerLogo} alt="My Letter Logo"></img>
         <span>Edit details in your cover letter</span>
       </div>

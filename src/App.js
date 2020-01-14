@@ -9,8 +9,10 @@ import Suggestions from "./components/Suggestions";
 import FeedbackSlider from "./components/FeedbackSlider";
 import Footer from "./components/Footer";
 
-import "./styles/App.scss";
-import "./styles/components-containers.scss";
+import "./App.scss";
+// import "./components-containers.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class App extends Component {
   render() {

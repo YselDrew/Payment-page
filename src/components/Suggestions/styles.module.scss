@@ -1,4 +1,4 @@
-.suggestions {
+.root {
   width: 400px;
   height: 100%;
 
@@ -7,7 +7,7 @@
     height: 80px;
   }
 
-  &__text {
+  .listWrapper {
     margin: auto;
     width: 70%;
     height: 80%;
@@ -18,7 +18,7 @@
       font-weight: bold;
     }
 
-    list-style-image: url(../images/listBullet.png);
+    list-style-image: url(../../images/listBullet.png);
 
     ul {
       height: 95%;

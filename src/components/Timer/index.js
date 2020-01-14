@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../styles/timer.scss";
+import styles from "./styles.module.scss";
 
 const milisecInSecond = 1000;
 
@@ -81,11 +81,11 @@ class Timer extends Component {
     const { days, hours, minutes } = this.state.time;
     const { isOpen } = this.props;
     return (
-      <div className={isOpen ? "opened-timer" : "timer"}>
-        <span className={isOpen ? "opened-timer__text" : "timer__text"}>
+      <div className={isOpen ? styles.openedTimer : styles.timer}>
+        <span className={isOpen ? styles.openedText : styles.text}>
           LIMITED SUMMER OFFER
         </span>
-        <span className={isOpen ? "opened-timer__time" : "timer__time"}>
+        <span className={isOpen ? styles.openedTime : styles.time}>
           {formatTimeToString(days, hours, minutes)}
         </span>
       </div>

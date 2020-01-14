@@ -3,16 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { feedback } from "../data.js";
+import { feedback } from "../../data.js";
 
-import "../styles/feedbackSlider.scss";
+import styles from "./styles.module.scss";
 
 const feedbackElement = feedback.map(item => (
-  <div key={item.id} className="slide">
+  <div key={item.id} className={styles.slide}>
     <img src={item.img} alt="#"></img>
-    <div className="text">
-      <span className="name">{item.name}</span>
-      <span className="quote">{item.text}</span>
+    <div className={styles.text}>
+      <span className={styles.name}>{item.name}</span>
+      <span className={styles.quote}>{item.text}</span>
     </div>
   </div>
 ));
@@ -34,3 +34,4 @@ class FeedbackSlider extends Component {
 }
 
 export default FeedbackSlider;
+

@@ -40,4 +40,3 @@ export const parseCreditCardNumber = number => {
   }
 };
 
-// export default creditCardNumberParse;

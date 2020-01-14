@@ -1,15 +1,15 @@
-@import "./colors";
+@import "../colors";
 
-.purchase-form {
+.purchaseForm {
   margin-top: 35px;
 
-  .credit-cards {
+  .creditCards {
     width: 470px;
     height: 30px;
   }
   form {
     margin-top: 20px;
-    .input-row {
+    .inputRow {
       position: relative;
       label {
         display: flex;
@@ -28,11 +28,11 @@
       }
     }
 
-    .select-row {
+    .selectRow {
       width: 300px;
       position: relative;
       display: flex;
-      .select-month {
+      .selectMonth {
         display: flex;
         flex-direction: column;
         width: 135px;
@@ -46,7 +46,7 @@
         align-content: center;
         font-weight: bold;
       }
-      .select-year {
+      .selectYear {
         display: flex;
         flex-direction: column;
         width: 72px;
@@ -63,7 +63,7 @@
         height: 40px;
         padding-left: 10px;
         font-size: 15px;
-        background: url(../images/select.png);
+        background: url(../../images/select.png);
         background-repeat: no-repeat;
         background-position-x: 100%;
         background-position-y: 7px;
@@ -71,14 +71,14 @@
         -moz-appearance: none;
       }
     }
-    .card-data {
+    .cardData {
       display: flex;
     }
-    .person-data {
+    .personData {
       margin-top: 20px;
       display: flex;
     }
-    .submit-row {
+    .submitRow {
       margin-top: 20px;
       display: flex;
       button {
@@ -110,7 +110,7 @@
       }
     }
 
-    .form-message {
+    .formMessage {
       display: block;
       width: 220px;
       color: #e24c2c;
@@ -118,7 +118,7 @@
     }
   }
 
-  .submit-text {
+  .submitText {
     display: block;
     margin-top: 15px;
     width: 400px;

@@ -1,13 +1,13 @@
 import React from "react";
-import suggestionsTitleImg from "../images/suggestionsTitle.png";
+import suggestionsTitleImg from "../../images/suggestionsTitle.png";
 
-import "../styles/suggestions.scss";
+import styles from "./styles.module.scss";
 
 function Suggestions() {
   return (
-    <div className="suggestions">
+    <div className={styles.root}>
       <img src={suggestionsTitleImg} alt="Suggestion Title"></img>
-      <div className="suggestions__text">
+      <div className={styles.listWrapper}>
         <span>Your plan will include:</span>
         <ul>
           <li>Unlimited Cover Letters</li>

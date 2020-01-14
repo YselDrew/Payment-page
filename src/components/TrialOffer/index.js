@@ -2,21 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import Timer from "./Timer.js";
-import trialImg from "../images/trial.png";
-import "../styles/trialOffer.scss";
+import Timer from "../Timer";
+import trialImg from "../../images/trial.png";
+import styles from "./styles.module.scss";
 
 function TrialOffer({ location }) {
   const isOpen = location.pathname === '/trial'
 
   return (
-    <div className={isOpen ? "opened-trial-container" : "trial-container"}>
+    <div className={isOpen ? styles.openedContainer : styles.container}>
       <Timer isOpen={isOpen} />
       <img src={trialImg} alt="#"></img>
-      <div className={isOpen ? "opened-trial-content" : "trial-content"}>
+      <div className={isOpen ? styles.openedContent : styles.content}>
         <span
           className={
-            isOpen ? "opened-trial-content__title" : "trial-content__title"
+            isOpen ? styles.openedTitle : styles.title
           }
         >
           Trial
@@ -24,14 +24,14 @@ function TrialOffer({ location }) {
         <span
           className={
             isOpen
-              ? "opened-trial-content__suggestion"
-              : "trial-content__suggestion"
+              ? styles.openedSuggestion
+              : styles.suggestion
           }
         >
           The first week only for
           <span
             className={
-              isOpen ? "opened-trial-content__price" : "trial-content__price"
+              isOpen ? styles.openedPrice : styles.price
             }
           >
             $0.99
@@ -39,7 +39,7 @@ function TrialOffer({ location }) {
         </span>
         <span
           className={
-            isOpen ? "opened-trial-content__text" : "trial-content__text"
+            isOpen ? styles.openedText : styles.text
           }
         >
           Rebills at $8.99 per month after your trial is completed.
@@ -49,7 +49,7 @@ function TrialOffer({ location }) {
       {isOpen ? (
         <Link to="/">
           <input
-            className="trial-input__close"
+            className={styles.inputClose}
             type="button"
             value="Change"
           ></input>
@@ -57,7 +57,7 @@ function TrialOffer({ location }) {
       ) : (
         <Link to="/trial">
           <input
-            className="trial-input__open"
+            className={styles.inputOpen}
             type="button"
             value="Get Started"
           ></input>

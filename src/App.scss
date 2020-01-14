@@ -1,0 +1,48 @@
+@import "./components/colors";
+
+.App {
+  margin: auto;
+  max-width: 1280px;
+  .page-title {
+    display: block;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .offers {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 475px;
+    display: flex;
+  }
+}
+
+.offers-container {
+  width: 730px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.form-container {
+  width: 535px;
+  margin-right: 50px;
+}
+
+.slick-slider * {
+  margin-top: 5px;
+  outline: none;
+}
+
+.slick-dots {
+  li.slick-active {
+    button:before {
+      color: $green !important;
+    }
+  }
+}

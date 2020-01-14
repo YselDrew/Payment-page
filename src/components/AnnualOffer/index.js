@@ -2,33 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import annualImg from "../images/annual.png";
+import annualImg from "../../images/annual.png";
 
-import "../styles/annualOffer.scss";
+import styles from "./styles.module.scss";
 
 function AnnualPlanOffer({ location }) {
   const isOpen = location.pathname === '/annual'
+
   return (
-    <div className={isOpen ? "opened-annual-container" : "annual-container"}>
+    <div className={isOpen ? styles.openedContainer : styles.container}>
       <img src={annualImg} alt="#"/>
-      <div className={isOpen ? "opened-annual-content" : "annual-content"}>
+      <div className={isOpen ? styles.openedContent : styles.content}>
         <span
           className={
-            isOpen ? "opened-annual-content__title" : "annual-content__title"
+            isOpen ? styles.openedTitle : styles.title
           }
         >
           Annual plan
         </span>
         <span
           className={
-            isOpen ? "opened-annual-content__price" : "annual-content__price"
+            isOpen ? styles.openedPrice : styles.price
           }
         >
           $39.00<span> / year</span>
         </span>
         <span
           className={
-            isOpen ? "opened-annual-content__text" : "annual-content__text"
+            isOpen ? styles.openedText : styles.text
           }
         >
           Your Premium plan will auto-renew. Cancel any time.
@@ -37,7 +38,7 @@ function AnnualPlanOffer({ location }) {
       {isOpen ? (
         <Link to="/">
           <input
-            className="annual-input__close"
+            className={styles.inputClose}
             type="button"
             value="Change"
           />
@@ -45,7 +46,7 @@ function AnnualPlanOffer({ location }) {
       ) : (
         <Link to="/annual">
           <input
-            className="annual-input__open"
+            className={styles.inputOpen}
             type="button"
             value="Get Started"
           />
@@ -56,3 +57,4 @@ function AnnualPlanOffer({ location }) {
 }
 
 export default withRouter(AnnualPlanOffer);
+
