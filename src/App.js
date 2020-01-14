@@ -10,7 +10,6 @@ import FeedbackSlider from "./components/FeedbackSlider";
 import Footer from "./components/Footer";
 
 import "./App.scss";
-// import "./components-containers.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
